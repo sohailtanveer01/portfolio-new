@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
+import dynamic from 'next/dynamic';
 
-// Also install this npm i --save-dev @types/react-lottie
-import Lottie from "react-lottie";
+// Dynamically import Lottie with no SSR
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 import { cn } from "@/lib/utils";
 
@@ -57,17 +58,8 @@ export const BentoGridItem = ({
 
   const [copied, setCopied] = useState(false);
 
-  const defaultOptions = {
-    loop: copied,
-    autoplay: copied,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-
   const handleCopy = () => {
-    const text = "hsu@jsmastery.pro";
+    const text = "sohail@aitomates.com";
     navigator.clipboard.writeText(text);
     setCopied(true);
   };
@@ -171,16 +163,17 @@ export const BentoGridItem = ({
           )}
           {id === 6 && (
             <div className="mt-5 relative">
-              {/* button border magic from tailwind css buttons  */}
-              {/* add rounded-md h-8 md:h-8, remove rounded-full */}
-              {/* remove focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 */}
-              {/* add handleCopy() for the copy the text */}
               <div
                 className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"
                   }`}
               >
-                {/* <img src="/confetti.gif" alt="confetti" /> */}
-                <Lottie options={defaultOptions} height={200} width={400} />
+                {copied && (
+                  <Lottie
+                    animationData={animationData}
+                    loop={true}
+                    style={{ width: 400, height: 200 }}
+                  />
+                )}
               </div>
 
               <MagicButton
