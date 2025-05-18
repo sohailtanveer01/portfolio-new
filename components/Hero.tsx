@@ -60,7 +60,7 @@ const Hero = () => {
             Hi! I&apos;m Sohail MD, AI Engineer based in Dallas, TX.
           </p>
 
-          <a href="/sohail_md_resume.pdf" download="sohail_md_resume.pdf">
+          <a href="/sohail-tanveer.pdf" download="sohail_md_resume.pdf">
             <MagicButton
               title="Download my Resume"
               icon={<FaLocationArrow />}
