@@ -76,7 +76,7 @@ export const projects = [
     des: "Train for your next tech interview with AI",
     img: "/TechPrep.png",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-    link: "/ui.earth.com",
+    link: "https://www.techprepai.org/",
   },
   {
     id: 2,
